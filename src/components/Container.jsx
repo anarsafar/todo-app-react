@@ -1,5 +1,11 @@
+import Header from "./Header";
+
 function Container() {
-  return <div>Container</div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export default Container;
