@@ -1,0 +1,31 @@
+form {
+    background: #fff;
+    border-radius: 5px;
+    padding: 0 10px;
+    button {
+        width: 4%;
+        border: 1px solid #bbb;
+        background: #fff;
+        border-radius: 50%;
+        padding: 8px;
+        cursor: pointer;
+        &:focus {
+            outline: none;
+        }
+    }
+    input {
+        border: none;
+        border-radius: 5px;
+        width: 96%;
+        padding: 1rem;
+        font-family: 'Josefin Sans', sans-serif;
+        font-weight: 700;
+        color: #333;
+        &:focus {
+            outline: none;
+        }
+        &::placeholder {
+            color: #bbb;
+        }
+    }
+}
