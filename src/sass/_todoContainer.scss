@@ -1,0 +1,14 @@
+.todo-container {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -270%);
+    width: 500px;
+    h1 {
+        color: #fff;
+        letter-spacing: 8px;
+    }
+    .logo {
+        cursor: pointer;
+    }
+}

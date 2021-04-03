@@ -10,6 +10,13 @@ body {
     box-sizing: border-box;
 }
 
+.flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
 //primary colors
 $bright-blue:hsl(220,
 98%,
