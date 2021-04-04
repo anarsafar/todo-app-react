@@ -1,4 +1,5 @@
 import AddTodo from "./AddTodo";
+import TodoFooter from "./TodoFooter";
 import TodoHeader from "./TodoHeader";
 
 function TodoContainer() {
@@ -6,6 +7,7 @@ function TodoContainer() {
     <div className="todo-container">
       <TodoHeader />
       <AddTodo />
+      <TodoFooter />
     </div>
   );
 }
