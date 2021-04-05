@@ -4,9 +4,8 @@ body {
   margin: 0;
   font-size: 18px;
   font-family: 'Josefin Sans', sans-serif;
-  background: url(../images/bg-desktop-light.jpg) no-repeat;
-  background-size: cover;
   color: #333;
+  position: relative;
 }
 
 * {
@@ -25,8 +24,12 @@ img {
 }
 
 .todo-container {
-  margin: 2rem auto;
   width: 500px;
+  position: absolute;
+  margin-top: -7%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, 0%);
 }
 
 .todo-container h1 {
@@ -80,7 +83,6 @@ form input::placeholder {
   padding: 8px 12px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  border-top: 1px solid #e4e5f1;
   color: #9394a5;
 }
 
@@ -116,5 +118,44 @@ form input::placeholder {
 
 .todo-footer .items-left {
   font-size: 12px;
+}
+
+.todo-items {
+  box-shadow: 0px 36px 52px -17px #9394a5;
+}
+
+.todo-items :nth-child(1) {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.todo-items .todo-item {
+  padding: 13px;
+  background: #fff;
+  border-bottom: 1px solid #e4e5f1;
+}
+
+.todo-items .todo-item button {
+  width: 4%;
+  border: 1px solid #d2d3db;
+  background: #fff;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.todo-items .todo-item button:focus {
+  outline: none;
+}
+
+.todo-items .todo-item .cross img {
+  width: 80%;
+  cursor: pointer;
+  display: none;
+}
+
+.todo-items .todo-item p {
+  margin: 0 5px 0 10px;
+  font-size: 15px;
 }
 /*# sourceMappingURL=App.css.map */

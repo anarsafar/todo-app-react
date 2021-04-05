@@ -1,0 +1,34 @@
+.todo-items {
+     :nth-child(1) {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    box-shadow: 0px 36px 52px -17px $lightmode-dark-grayish-blue;
+    .todo-item {
+        padding: 13px;
+        background: #fff;
+        border-bottom: 1px solid $lightmode-very-light-grayish-blue;
+        button {
+            width: 4%;
+            border: 1px solid $lightmode-light-grayish-blue;
+            background: #fff;
+            border-radius: 50%;
+            padding: 8px;
+            cursor: pointer;
+            &:focus {
+                outline: none;
+            }
+        }
+        .cross {
+            img {
+                width: 80%;
+                cursor: pointer;
+                display: none;
+            }
+        }
+        p {
+            margin: 0 5px 0 10px;
+            font-size: 15px;
+        }
+    }
+}
