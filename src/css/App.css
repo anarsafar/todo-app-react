@@ -44,7 +44,7 @@ img {
 form {
   background: #fff;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 0 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -53,7 +53,7 @@ form button {
   border: 1px solid #d2d3db;
   background: #fff;
   border-radius: 50%;
-  padding: 8px;
+  padding: 9px;
   cursor: pointer;
 }
 
@@ -64,7 +64,7 @@ form button:focus {
 form input {
   border: none;
   width: 96%;
-  padding: 1rem;
+  padding: 1.2rem 1rem;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
   color: #333;
@@ -130,9 +130,28 @@ form input::placeholder {
 }
 
 .todo-items .todo-item {
-  padding: 13px;
+  padding: 16px 1rem 15px;
+  margin: 0;
+  position: relative;
   background: #fff;
   border-bottom: 1px solid #e4e5f1;
+}
+
+.todo-items .todo-item .hide {
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.todo-items .todo-item:hover .hide {
+  opacity: 1;
+}
+
+.todo-items .todo-item .check {
+  position: absolute;
+  top: 25px;
+  left: 22px;
+  width: 2%;
+  cursor: pointer;
 }
 
 .todo-items .todo-item button {
@@ -140,7 +159,7 @@ form input::placeholder {
   border: 1px solid #d2d3db;
   background: #fff;
   border-radius: 50%;
-  padding: 8px;
+  padding: 9px;
   cursor: pointer;
 }
 
@@ -151,11 +170,12 @@ form input::placeholder {
 .todo-items .todo-item .cross img {
   width: 80%;
   cursor: pointer;
-  display: none;
 }
 
 .todo-items .todo-item p {
-  margin: 0 5px 0 10px;
-  font-size: 15px;
+  margin: 0;
+  padding: 0 1rem;
+  font-size: 13px;
+  font-weight: 700;
 }
 /*# sourceMappingURL=App.css.map */
