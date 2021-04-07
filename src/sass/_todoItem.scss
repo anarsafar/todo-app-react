@@ -10,34 +10,34 @@
         position: relative;
         background: #fff;
         border-bottom: 1px solid $lightmode-very-light-grayish-blue;
-        // .hover-circle {
-        //     width: 20px;
-        //     height: 20px;
-        //     border-radius: 50%;
-        //     position: absolute;
-        //     left: 15px;
-        //     background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-        // }
         .hide {
             opacity: 0;
             transition: opacity 0.2s;
+            display: none;
         }
         &:hover {
             .hide {
                 opacity: 1;
+                display: block;
             }
         }
         .check {
             position: absolute;
-            top: 25px;
-            left: 22px;
+            top: 23px;
+            left: 21px;
             width: 2%;
             cursor: pointer;
+        }
+        .line {
+            text-decoration: line-through;
+            color: $lightmode-very-dark-grayish-blue;
+        }
+        .check-btn {
+            background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) !important;
         }
         button {
             width: 4%;
             border: 1px solid $lightmode-light-grayish-blue;
-            // background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
             background: #fff;
             border-radius: 50%;
             padding: 9px;

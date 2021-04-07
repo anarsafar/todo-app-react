@@ -140,18 +140,29 @@ form input::placeholder {
 .todo-items .todo-item .hide {
   opacity: 0;
   transition: opacity 0.2s;
+  display: none;
 }
 
 .todo-items .todo-item:hover .hide {
   opacity: 1;
+  display: block;
 }
 
 .todo-items .todo-item .check {
   position: absolute;
-  top: 25px;
-  left: 22px;
+  top: 23px;
+  left: 21px;
   width: 2%;
   cursor: pointer;
+}
+
+.todo-items .todo-item .line {
+  text-decoration: line-through;
+  color: #9394a5;
+}
+
+.todo-items .todo-item .check-btn {
+  background: linear-gradient(#57ddff, #c058f3) !important;
 }
 
 .todo-items .todo-item button {

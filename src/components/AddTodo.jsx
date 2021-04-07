@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import cross from "../images/icon-cross.svg";
 import check from "../images/icon-check.svg";
+import LS from "local-storage";
 
 function AddTodo() {
   const [todos, setTodos] = useState([]);
   const [todoItem, setTodoItem] = useState("");
+  useEffect(() => {
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    if (todoArray) {
+      setTodos(todoArray);
+    }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,6 +29,7 @@ function AddTodo() {
         completed: false,
       },
     ]);
+    LS.set("todoLS", JSON.stringify(todos));
   };
 
   const handleChange = (e) => {
@@ -30,15 +38,20 @@ function AddTodo() {
   };
 
   const removeTodo = (todoID) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== todoID);
+    setTodos(updatedTodos);
+    LS.set("todoLS", JSON.stringify(updatedTodos));
+  };
+
+  const checkTodo = (todoID) => {
     const updatedTodos = todos.map((todo) => {
       return todo.id === todoID
         ? { ...todo, completed: !todo.completed }
         : todo;
     });
     setTodos(updatedTodos);
+    LS.set("todoLS", JSON.stringify(updatedTodos));
   };
-
-  console.log(todos);
 
   return (
     <div>
@@ -55,10 +68,17 @@ function AddTodo() {
         {todos.map((item) => (
           <div className="todo-item flex" id={item.id}>
             <div className="flex left">
-              <img src={check} alt="" className="check" />
-              <button></button>
-              {/* <div className="hover-circle hide-circle"></div> */}
-              <p>{item.text}</p>
+              <img
+                src={check}
+                alt=""
+                onClick={() => checkTodo(item.id)}
+                className={item.completed ? "check-btn check" : "check"}
+              />
+              <button
+                onClick={() => checkTodo(item.id)}
+                className={item.completed ? "check-btn" : null}
+              ></button>
+              <p className={item.completed ? "line" : null}>{item.text}</p>
             </div>
             <div className="cross hide">
               <img src={cross} alt="" onClick={() => removeTodo(item.id)} />
