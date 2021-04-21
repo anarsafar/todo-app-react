@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-size: 18px;
   font-family: 'Josefin Sans', sans-serif;
+  transition: background-color 0.4s ease-out;
   color: #333;
   position: relative;
 }
@@ -19,14 +20,53 @@ body {
   align-content: center;
 }
 
+header {
+  position: relative;
+}
+
+header img {
+  transition: opacity 0.4s ease-out;
+  position: absolute;
+}
+
+.opacity {
+  opacity: 0;
+}
+
 img {
   width: 100%;
+}
+
+.dark-bg {
+  background: #25273c !important;
+  color: #cacde8 !important;
+}
+
+.dark-bg-circle {
+  border: 1px solid #4d5066 !important;
+}
+
+.dark-item {
+  border-bottom: 1px solid #393a4c !important;
+}
+
+.dark-line {
+  text-decoration: line-through;
+  color: #4d5066;
+}
+
+.dark-items {
+  box-shadow: none !important;
+}
+
+button.footer-hover:hover {
+  color: #e4e5f1 !important;
 }
 
 .todo-container {
   width: 500px;
   position: absolute;
-  margin-top: -7%;
+  margin-top: 2.9rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, 0%);
@@ -46,6 +86,7 @@ form {
   border-radius: 5px;
   padding: 0 1rem;
   margin-bottom: 1.5rem;
+  transition: background 0.4s ease-out;
 }
 
 form button {
@@ -54,6 +95,7 @@ form button {
   background: #fff;
   border-radius: 50%;
   padding: 9px;
+  transition: background 0.4s ease-out;
   cursor: pointer;
 }
 
@@ -64,6 +106,7 @@ form button:focus {
 form input {
   border: none;
   width: 96%;
+  transition: background 0.4s ease-out;
   padding: 1.2rem 1rem;
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 700;
@@ -75,7 +118,7 @@ form input:focus {
 }
 
 form input::placeholder {
-  color: #bbb;
+  color: #777a92;
 }
 
 .todo-footer {
@@ -84,14 +127,15 @@ form input::placeholder {
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   color: #9394a5;
+  transition: background 0.4s ease-out;
 }
 
-.todo-footer .filter :nth-child(1) {
-  color: #3a7bfd;
+.todo-footer .filter .active {
+  color: #3a7bfd !important;
 }
 
-.todo-footer .filter :not(:first-child):hover {
-  color: #333;
+.todo-footer .filter .active:hover {
+  color: #3a7bfd !important;
 }
 
 .todo-footer .filter button {
@@ -112,8 +156,8 @@ form input::placeholder {
   outline: none;
 }
 
-.todo-footer .clear button:hover {
-  color: #333;
+.todo-footer button:hover {
+  color: #393a4c;
 }
 
 .todo-footer .items-left {
@@ -135,6 +179,7 @@ form input::placeholder {
   position: relative;
   background: #fff;
   border-bottom: 1px solid #e4e5f1;
+  transition: 0.4s ease-out;
 }
 
 .todo-items .todo-item .hide {
@@ -154,6 +199,7 @@ form input::placeholder {
   left: 21px;
   width: 2%;
   cursor: pointer;
+  display: none;
 }
 
 .todo-items .todo-item .line {
@@ -163,6 +209,7 @@ form input::placeholder {
 
 .todo-items .todo-item .check-btn {
   background: linear-gradient(#57ddff, #c058f3) !important;
+  display: block;
 }
 
 .todo-items .todo-item button {
@@ -172,6 +219,7 @@ form input::placeholder {
   border-radius: 50%;
   padding: 9px;
   cursor: pointer;
+  transition: background 0.4s ease-out;
 }
 
 .todo-items .todo-item button:focus {

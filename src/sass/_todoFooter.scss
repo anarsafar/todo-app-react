@@ -1,42 +1,37 @@
-.todo-footer {
-    background: #fff;
-    padding: 8px 12px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: $lightmode-very-dark-grayish-blue;
-    .filter {
-         :nth-child(1) {
-            color: $bright-blue;
-        }
-         :not(:first-child) {
-            &:hover {
-                color: #333;
-            }
-        }
-        button {
-            font-weight: 700;
-        }
-    }
-    button {
-        border: none;
-        background: none;
-        transition: 0.3s;
-        cursor: pointer;
-        font-size: 12px;
+    .todo-footer {
+        background: #fff;
+        padding: 8px 12px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
         color: $lightmode-very-dark-grayish-blue;
-        font-family: 'Josefin Sans', sans-serif;
-        &:focus {
-            outline: none;
-        }
-    }
-    .clear {
-        button {
-            &:hover {
-                color: #333;
+        transition: background 0.4s ease-out;
+        .filter {
+            .active {
+                color: $bright-blue !important;
+                &:hover {
+                    color: $bright-blue !important;
+                }
+            }
+            button {
+                font-weight: 700;
             }
         }
+        button {
+            border: none;
+            background: none;
+            transition: 0.3s;
+            cursor: pointer;
+            font-size: 12px;
+            color: $lightmode-very-dark-grayish-blue;
+            font-family: 'Josefin Sans', sans-serif;
+            &:focus {
+                outline: none;
+            }
+            &:hover {
+                color: $darkmode-very-dark-grayish-blue-2;
+            }
+        }
+        .items-left {
+            font-size: 12px;
+        }
     }
-    .items-left {
-        font-size: 12px;
-    }
-}

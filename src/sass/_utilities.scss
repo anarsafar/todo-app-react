@@ -4,8 +4,7 @@ body {
     margin: 0;
     font-size: 18px;
     font-family: 'Josefin Sans', sans-serif; //400 700
-    // background: url(../images/bg-desktop-light.jpg) no-repeat;
-    // background-size: cover;
+    transition: background-color 0.4s ease-out;
     color: #333;
     position: relative;
 }
@@ -19,6 +18,19 @@ body {
     justify-content: space-between;
     align-items: center;
     align-content: center;
+}
+
+//header image transition effect
+header {
+    position: relative;
+    img {
+        transition: opacity 0.4s ease-out;
+        position: absolute;
+    }
+}
+
+.opacity {
+    opacity: 0;
 }
 
 //primary colors
@@ -45,3 +57,52 @@ $lightmode-dark-grayish-blue: hsl(236,
 $lightmode-very-dark-grayish-blue: hsl(236,
 9%,
 61%);
+//dark mode
+$darkmode-very-dark-blue: hsl(235,
+21%,
+11%);
+$darkmode-very-dark-desaturated-blue:hsl(235,
+24%,
+19%);
+$darkmode-light-grayish-blue:hsl(234,
+39%,
+85%);
+$darkmode-light-grayish-blue-hover:hsl(236,
+33%,
+92%);
+$darkmode-dark-grayish-blue:hsl(234,
+11%,
+52%);
+$darkmode-very-dark-grayish-blue-1:hsl(233,
+14%,
+35%);
+$darkmode-very-dark-grayish-blue-2:hsl(237,
+14%,
+26%);
+.dark-bg {
+    background: $darkmode-very-dark-desaturated-blue !important;
+    color: $darkmode-light-grayish-blue !important;
+}
+
+.dark-bg-circle {
+    border: 1px solid $darkmode-very-dark-grayish-blue-1 !important;
+}
+
+.dark-item {
+    border-bottom: 1px solid $darkmode-very-dark-grayish-blue-2 !important;
+}
+
+.dark-line {
+    text-decoration: line-through;
+    color: $darkmode-very-dark-grayish-blue-1;
+}
+
+.dark-items {
+    box-shadow: none !important;
+}
+
+button.footer-hover {
+    &:hover {
+        color: $darkmode-light-grayish-blue-hover !important;
+    }
+}

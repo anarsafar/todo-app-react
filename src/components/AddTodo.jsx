@@ -3,7 +3,7 @@ import cross from "../images/icon-cross.svg";
 import check from "../images/icon-check.svg";
 import LS from "local-storage";
 
-function AddTodo() {
+function AddTodo(props) {
   const [todos, setTodos] = useState([]);
   const [todoItem, setTodoItem] = useState("");
   useEffect(() => {
@@ -55,18 +55,31 @@ function AddTodo() {
 
   return (
     <div>
-      <form className="flex" onSubmit={handleSubmit}>
-        <button></button>
+      <form
+        className={props.darkMode ? "flex dark-bg" : "flex"}
+        onSubmit={handleSubmit}
+      >
+        <button
+          className={props.darkMode ? "dark-bg dark-bg-circle" : null}
+        ></button>
         <input
           type="text"
           placeholder="Create a new todo..."
           value={todoItem}
           onChange={handleChange}
+          className={props.darkMode ? "dark-bg" : null}
         />
       </form>
-      <div className="todo-items">
+      <div className={props.darkMode ? "todo-items dark-items" : "todo-items"}>
         {todos.map((item) => (
-          <div className="todo-item flex" id={item.id}>
+          <div
+            className={
+              props.darkMode
+                ? "todo-item flex dark-bg dark-item"
+                : "todo-item flex"
+            }
+            id={item.id}
+          >
             <div className="flex left">
               <img
                 src={check}
@@ -76,9 +89,27 @@ function AddTodo() {
               />
               <button
                 onClick={() => checkTodo(item.id)}
-                className={item.completed ? "check-btn" : null}
+                className={
+                  props.darkMode && item.completed
+                    ? "dark-bg dark-bg-circle check-btn"
+                    : item.completed
+                    ? "check-btn"
+                    : props.darkMode
+                    ? "dark-bg dark-bg-circle"
+                    : null
+                }
               ></button>
-              <p className={item.completed ? "line" : null}>{item.text}</p>
+              <p
+                className={
+                  item.completed && props.darkMode
+                    ? "dark-line"
+                    : item.completed
+                    ? "line"
+                    : null
+                }
+              >
+                {item.text}
+              </p>
             </div>
             <div className="cross hide">
               <img src={cross} alt="" onClick={() => removeTodo(item.id)} />

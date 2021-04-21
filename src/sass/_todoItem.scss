@@ -10,6 +10,7 @@
         position: relative;
         background: #fff;
         border-bottom: 1px solid $lightmode-very-light-grayish-blue;
+        transition: 0.4s ease-out;
         .hide {
             opacity: 0;
             transition: opacity 0.2s;
@@ -27,6 +28,7 @@
             left: 21px;
             width: 2%;
             cursor: pointer;
+            display: none;
         }
         .line {
             text-decoration: line-through;
@@ -34,6 +36,7 @@
         }
         .check-btn {
             background: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%)) !important;
+            display: block;
         }
         button {
             width: 4%;
@@ -42,6 +45,7 @@
             border-radius: 50%;
             padding: 9px;
             cursor: pointer;
+            transition: background 0.4s ease-out;
             &:focus {
                 outline: none;
             }
