@@ -1,5 +1,4 @@
 import AddTodo from "./AddTodo";
-import TodoFooter from "./TodoFooter";
 import TodoHeader from "./TodoHeader";
 
 function TodoContainer(props) {
@@ -10,7 +9,6 @@ function TodoContainer(props) {
         darkMode={props.darkMode}
       />
       <AddTodo darkMode={props.darkMode} />
-      <TodoFooter darkMode={props.darkMode} />
     </div>
   );
 }

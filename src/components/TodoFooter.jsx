@@ -9,16 +9,30 @@ function TodoFooter(props) {
         <span>0</span> items left
       </div>
       <div className="filter">
-        <button className={props.darkMode ? "footer-hover" : null}>All</button>
-        <button className={props.darkMode ? "footer-hover" : null}>
+        <button
+          onClick={props.handleFilterAll}
+          className={props.darkMode ? "footer-hover" : null}
+        >
+          All
+        </button>
+        <button
+          onClick={props.handleFilterActive}
+          className={props.darkMode ? "footer-hover" : null}
+        >
           Active
         </button>
-        <button className={props.darkMode ? "footer-hover" : null}>
+        <button
+          onClick={props.handleFilterCompleted}
+          className={props.darkMode ? "footer-hover" : null}
+        >
           Completed
         </button>
       </div>
       <div className="clear">
-        <button className={props.darkMode ? "footer-hover" : null}>
+        <button
+          onClick={props.clearCompleted}
+          className={props.darkMode ? "footer-hover" : null}
+        >
           Clear Completed
         </button>
       </div>

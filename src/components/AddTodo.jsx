@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import cross from "../images/icon-cross.svg";
-import check from "../images/icon-check.svg";
+import TodoFooter from "./TodoFooter";
+import TodoItem from "./TodoItem";
 import LS from "local-storage";
 
 function AddTodo(props) {
@@ -53,6 +53,27 @@ function AddTodo(props) {
     LS.set("todoLS", JSON.stringify(updatedTodos));
   };
 
+  const handleFilterAll = () => {
+    return todos;
+  };
+
+  const handleFilterActive = () => {
+    const newTodos = todos.filter((todo) => !todo.completed);
+    console.log(newTodos);
+    return newTodos;
+  };
+
+  const handleFilterCompleted = () => {
+    const newTodos = todos.filter((todo) => todo.completed);
+    console.log(newTodos);
+    return newTodos;
+  };
+
+  const clearCompleted = () => {
+    const newTodos = todos.filter((todo) => !todo.completed);
+    LS.set("todoLS", JSON.stringify(newTodos));
+  };
+
   return (
     <div>
       <form
@@ -70,53 +91,19 @@ function AddTodo(props) {
           className={props.darkMode ? "dark-bg" : null}
         />
       </form>
-      <div className={props.darkMode ? "todo-items dark-items" : "todo-items"}>
-        {todos.map((item) => (
-          <div
-            className={
-              props.darkMode
-                ? "todo-item flex dark-bg dark-item"
-                : "todo-item flex"
-            }
-            id={item.id}
-          >
-            <div className="flex left">
-              <img
-                src={check}
-                alt=""
-                onClick={() => checkTodo(item.id)}
-                className={item.completed ? "check-btn check" : "check"}
-              />
-              <button
-                onClick={() => checkTodo(item.id)}
-                className={
-                  props.darkMode && item.completed
-                    ? "dark-bg dark-bg-circle check-btn"
-                    : item.completed
-                    ? "check-btn"
-                    : props.darkMode
-                    ? "dark-bg dark-bg-circle"
-                    : null
-                }
-              ></button>
-              <p
-                className={
-                  item.completed && props.darkMode
-                    ? "dark-line"
-                    : item.completed
-                    ? "line"
-                    : null
-                }
-              >
-                {item.text}
-              </p>
-            </div>
-            <div className="cross hide">
-              <img src={cross} alt="" onClick={() => removeTodo(item.id)} />
-            </div>
-          </div>
-        ))}
-      </div>
+      <TodoItem
+        darkMode={props.darkMode}
+        todos={todos}
+        checkTodo={checkTodo}
+        removeTodo={removeTodo}
+      />
+      <TodoFooter
+        darkMode={props.darkMode}
+        handleFilterAll={handleFilterAll}
+        handleFilterActive={handleFilterActive}
+        handleFilterCompleted={handleFilterCompleted}
+        clearCompleted={clearCompleted}
+      />
     </div>
   );
 }
