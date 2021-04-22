@@ -7,6 +7,7 @@ import bgMobileDark from "../images/bg-mobile-dark.jpg";
 import LS from "local-storage";
 
 function Container() {
+  const [isSmall, setSmall] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
     const isDark = LS.get("darkModeLS");
     return isDark !== null ? isDark : false;
@@ -14,6 +15,13 @@ function Container() {
   useEffect(() => {
     LS.set("darkModeLS", darkMode);
   }, [darkMode]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 650) setSmall((prevState) => !prevState);
+    };
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   const handleDarkMode = () => {
     setDarkMode((prevState) => !prevState);
@@ -29,12 +37,12 @@ function Container() {
     <div>
       <header>
         <img
-          src={window.innerWidth < 550 ? bgMobileDark : bgDesktopDark}
+          src={isSmall ? bgMobileDark : bgDesktopDark}
           alt=""
           className={darkMode ? null : "opacity"}
         />
         <img
-          src={window.innerWidth < 550 ? bgMobileLight : bgDesktopLight}
+          src={isSmall ? bgMobileLight : bgDesktopLight}
           alt=""
           className={darkMode ? "opacity" : null}
         />

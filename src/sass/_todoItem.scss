@@ -30,6 +30,9 @@
             cursor: pointer;
             display: none;
         }
+        .check-visible {
+            display: block;
+        }
         .line {
             text-decoration: line-through;
             color: $lightmode-very-dark-grayish-blue;
@@ -72,7 +75,6 @@
                 width: 3%;
                 top: 22px;
                 left: 22px;
-                background: transparent !important;
             }
         }
     }

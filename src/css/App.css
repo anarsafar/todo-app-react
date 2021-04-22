@@ -59,6 +59,10 @@ img {
   box-shadow: none !important;
 }
 
+.light-bg-footer {
+  box-shadow: 0px 3px 52px -12px #9394a5;
+}
+
 button.footer-hover:hover {
   color: #e4e5f1 !important;
 }
@@ -229,6 +233,10 @@ form input::placeholder {
   display: none;
 }
 
+.todo-items .todo-item .check-visible {
+  display: block;
+}
+
 .todo-items .todo-item .line {
   text-decoration: line-through;
   color: #9394a5;
@@ -270,7 +278,6 @@ form input::placeholder {
     width: 3%;
     top: 22px;
     left: 22px;
-    background: transparent !important;
   }
 }
 /*# sourceMappingURL=App.css.map */

@@ -18,7 +18,7 @@ function TodoItem(props) {
               src={check}
               alt=""
               onClick={() => props.checkTodo(item.id)}
-              className={item.completed ? "check-btn check" : "check"}
+              className={item.completed ? "check-visible check" : "check"}
             />
             <button
               onClick={() => props.checkTodo(item.id)}
