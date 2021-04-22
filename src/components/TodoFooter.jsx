@@ -1,4 +1,5 @@
 function TodoFooter(props) {
+  const itemsLeft = props.todos.filter((todo) => !todo.completed);
   return (
     <div
       className={
@@ -6,7 +7,7 @@ function TodoFooter(props) {
       }
     >
       <div className="items-left">
-        <span>0</span> items left
+        <span>{itemsLeft.length}</span> items left
       </div>
       <div className="filter">
         <button

@@ -54,23 +54,27 @@ function AddTodo(props) {
   };
 
   const handleFilterAll = () => {
-    return todos;
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    if (todoArray) setTodos(todoArray);
   };
 
   const handleFilterActive = () => {
-    const newTodos = todos.filter((todo) => !todo.completed);
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    const newTodos = todoArray.filter((todo) => !todo.completed);
     console.log(newTodos);
-    return newTodos;
+    setTodos(newTodos);
   };
 
   const handleFilterCompleted = () => {
-    const newTodos = todos.filter((todo) => todo.completed);
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    const newTodos = todoArray.filter((todo) => todo.completed);
     console.log(newTodos);
-    return newTodos;
+    setTodos(newTodos);
   };
 
   const clearCompleted = () => {
     const newTodos = todos.filter((todo) => !todo.completed);
+    setTodos(newTodos);
     LS.set("todoLS", JSON.stringify(newTodos));
   };
 
@@ -103,6 +107,7 @@ function AddTodo(props) {
         handleFilterActive={handleFilterActive}
         handleFilterCompleted={handleFilterCompleted}
         clearCompleted={clearCompleted}
+        todos={todos}
       />
     </div>
   );
