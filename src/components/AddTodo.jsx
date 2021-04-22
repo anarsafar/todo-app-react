@@ -61,14 +61,12 @@ function AddTodo(props) {
   const handleFilterActive = () => {
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => !todo.completed);
-    console.log(newTodos);
     setTodos(newTodos);
   };
 
   const handleFilterCompleted = () => {
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => todo.completed);
-    console.log(newTodos);
     setTodos(newTodos);
   };
 

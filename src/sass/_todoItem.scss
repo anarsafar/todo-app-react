@@ -64,3 +64,16 @@
         }
     }
 }
+
+@media screen and (max-width:550px) {
+    .todo-items {
+        .todo-item {
+            .check {
+                width: 3%;
+                top: 22px;
+                left: 22px;
+                background: transparent !important;
+            }
+        }
+    }
+}

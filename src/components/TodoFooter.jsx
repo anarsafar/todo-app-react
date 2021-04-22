@@ -9,7 +9,7 @@ function TodoFooter(props) {
       <div className="items-left">
         <span>{itemsLeft.length}</span> items left
       </div>
-      <div className="filter">
+      <div className={props.darkMode ? "filter dark-bg" : "filter"}>
         <button
           onClick={props.handleFilterAll}
           className={props.darkMode ? "footer-hover" : null}

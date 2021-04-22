@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import TodoContainer from "./TodoContainer";
 import bgDesktopLight from "../images/bg-desktop-light.jpg";
 import bgDesktopDark from "../images/bg-desktop-dark.jpg";
+import bgMobileLight from "../images/bg-mobile-light.jpg";
+import bgMobileDark from "../images/bg-mobile-dark.jpg";
 import LS from "local-storage";
 
 function Container() {
@@ -15,7 +17,6 @@ function Container() {
 
   const handleDarkMode = () => {
     setDarkMode((prevState) => !prevState);
-    console.log("click: " + darkMode);
   };
 
   if (darkMode) {
@@ -24,17 +25,16 @@ function Container() {
     document.body.style.backgroundColor = `#fff`;
   }
 
-  console.log("app: " + darkMode);
   return (
     <div>
       <header>
         <img
-          src={bgDesktopDark}
+          src={window.innerWidth < 550 ? bgMobileDark : bgDesktopDark}
           alt=""
           className={darkMode ? null : "opacity"}
         />
         <img
-          src={bgDesktopLight}
+          src={window.innerWidth < 550 ? bgMobileLight : bgDesktopLight}
           alt=""
           className={darkMode ? "opacity" : null}
         />

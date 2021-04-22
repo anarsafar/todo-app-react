@@ -35,3 +35,20 @@
             font-size: 12px;
         }
     }
+    
+    @media screen and (max-width:550px) {
+        .todo-footer {
+            position: relative;
+            padding: 15px 12px;
+            .filter {
+                width: 330px;
+                text-align: center;
+                border-radius: 5px;
+                padding: 13px 0;
+                left: 50%;
+                bottom: -65px;
+                transform: translate(-50%);
+                position: absolute;
+            }
+        }
+    }

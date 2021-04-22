@@ -13,3 +13,13 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width:550px) {
+    .todo-container {
+        margin-top: 1.5rem;
+        width: 330px;
+        h1 {
+            font-size: 1.8rem;
+        }
+    }
+}

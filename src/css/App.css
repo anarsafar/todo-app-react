@@ -81,6 +81,16 @@ button.footer-hover:hover {
   cursor: pointer;
 }
 
+@media screen and (max-width: 550px) {
+  .todo-container {
+    margin-top: 1.5rem;
+    width: 330px;
+  }
+  .todo-container h1 {
+    font-size: 1.8rem;
+  }
+}
+
 form {
   background: #fff;
   border-radius: 5px;
@@ -164,6 +174,23 @@ form input::placeholder {
   font-size: 12px;
 }
 
+@media screen and (max-width: 550px) {
+  .todo-footer {
+    position: relative;
+    padding: 15px 12px;
+  }
+  .todo-footer .filter {
+    width: 330px;
+    text-align: center;
+    border-radius: 5px;
+    padding: 13px 0;
+    left: 50%;
+    bottom: -65px;
+    transform: translate(-50%);
+    position: absolute;
+  }
+}
+
 .todo-items {
   box-shadow: 0px 36px 52px -17px #9394a5;
 }
@@ -236,5 +263,14 @@ form input::placeholder {
   padding: 0 1rem;
   font-size: 13px;
   font-weight: 700;
+}
+
+@media screen and (max-width: 550px) {
+  .todo-items .todo-item .check {
+    width: 3%;
+    top: 22px;
+    left: 22px;
+    background: transparent !important;
+  }
 }
 /*# sourceMappingURL=App.css.map */
