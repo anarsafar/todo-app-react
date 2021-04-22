@@ -6,12 +6,12 @@ function TodoItem(props) {
     <div className={props.darkMode ? "todo-items dark-items" : "todo-items"}>
       {props.todos.map((item) => (
         <div
+          id={item.id}
           className={
             props.darkMode
               ? "todo-item flex dark-bg dark-item"
               : "todo-item flex"
           }
-          id={item.id}
         >
           <div className="flex left">
             <img

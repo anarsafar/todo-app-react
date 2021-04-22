@@ -20,19 +20,43 @@ function TodoFooter(props) {
       >
         <button
           onClick={props.handleFilterAll}
-          className={props.darkMode ? "footer-hover" : null}
+          className={
+            props.darkMode && props.one
+              ? "footer-hover active"
+              : props.darkMode
+              ? "footer-hover"
+              : props.one
+              ? "active"
+              : null
+          }
         >
           All
         </button>
         <button
           onClick={props.handleFilterActive}
-          className={props.darkMode ? "footer-hover" : null}
+          className={
+            props.darkMode && props.two
+              ? "footer-hover active"
+              : props.darkMode
+              ? "footer-hover"
+              : props.two
+              ? "active"
+              : null
+          }
         >
           Active
         </button>
         <button
           onClick={props.handleFilterCompleted}
-          className={props.darkMode ? "footer-hover" : null}
+          className={
+            props.darkMode && props.three
+              ? "footer-hover active"
+              : props.darkMode
+              ? "footer-hover"
+              : props.three
+              ? "active"
+              : null
+          }
         >
           Completed
         </button>

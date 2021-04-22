@@ -5,6 +5,9 @@ import LS from "local-storage";
 
 function AddTodo(props) {
   const [todos, setTodos] = useState([]);
+  const [one, setOne] = useState(true);
+  const [two, setTwo] = useState(false);
+  const [three, setTree] = useState(false);
   const [todoItem, setTodoItem] = useState("");
   useEffect(() => {
     const todoArray = JSON.parse(LS.get("todoLS"));
@@ -55,16 +58,25 @@ function AddTodo(props) {
 
   const handleFilterAll = () => {
     const todoArray = JSON.parse(LS.get("todoLS"));
+    setOne((prevState) => !prevState);
+    setTwo(false);
+    setTree(false);
     if (todoArray) setTodos(todoArray);
   };
 
   const handleFilterActive = () => {
+    setOne(false);
+    setTwo((prevState) => !prevState);
+    setTree(false);
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => !todo.completed);
     setTodos(newTodos);
   };
 
   const handleFilterCompleted = () => {
+    setOne(false);
+    setTwo(false);
+    setTree((prevState) => !prevState);
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => todo.completed);
     setTodos(newTodos);
@@ -106,6 +118,9 @@ function AddTodo(props) {
         handleFilterCompleted={handleFilterCompleted}
         clearCompleted={clearCompleted}
         todos={todos}
+        one={one}
+        two={two}
+        three={three}
       />
     </div>
   );
