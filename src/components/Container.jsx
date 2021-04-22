@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import TodoContainer from "./TodoContainer";
 import bgDesktopLight from "../images/bg-desktop-light.jpg";
 import bgDesktopDark from "../images/bg-desktop-dark.jpg";
 import bgMobileLight from "../images/bg-mobile-light.jpg";
 import bgMobileDark from "../images/bg-mobile-dark.jpg";
 import LS from "local-storage";
+export const SmallContext = React.createContext();
 
 function Container() {
   const [isSmall, setSmall] = useState(false);
@@ -47,7 +48,9 @@ function Container() {
           className={darkMode ? "opacity" : null}
         />
       </header>
-      <TodoContainer handleDarkMode={handleDarkMode} darkMode={darkMode} />
+      <SmallContext.Provider value={isSmall}>
+        <TodoContainer handleDarkMode={handleDarkMode} darkMode={darkMode} />
+      </SmallContext.Provider>
     </div>
   );
 }

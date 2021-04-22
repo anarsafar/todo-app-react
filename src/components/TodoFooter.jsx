@@ -1,4 +1,8 @@
+import { useContext } from "react";
+import { SmallContext } from "./Container";
+
 function TodoFooter(props) {
+  const small = useContext(SmallContext);
   const itemsLeft = props.todos.filter((todo) => !todo.completed);
   return (
     <div
@@ -10,7 +14,9 @@ function TodoFooter(props) {
         <span>{itemsLeft.length}</span> items left
       </div>
       <div
-        className={props.darkMode ? "filter dark-bg" : "filter light-bg-footer"}
+        className={
+          props.darkMode && small ? "filter dark-bg" : "filter light-bg-footer"
+        }
       >
         <button
           onClick={props.handleFilterAll}
