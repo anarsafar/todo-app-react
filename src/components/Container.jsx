@@ -19,7 +19,10 @@ function Container() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 650) setSmall((prevState) => !prevState);
+      if (window.innerWidth <= 650) setSmall(true);
+      else {
+        setSmall(false);
+      }
     };
     window.addEventListener("resize", handleResize);
   }, []);

@@ -6,7 +6,7 @@ function TodoItem(props) {
     <div className={props.darkMode ? "todo-items dark-items" : "todo-items"}>
       {props.todos.map((item) => (
         <div
-          id={item.id}
+          key={item.id}
           className={
             props.darkMode
               ? "todo-item flex dark-bg dark-item"
