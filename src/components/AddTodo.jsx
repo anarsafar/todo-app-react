@@ -2,32 +2,46 @@ import { useState, useEffect } from "react";
 import TodoFooter from "./TodoFooter";
 import TodoItem from "./TodoItem";
 import LS from "local-storage";
+import uuid from "react-uuid";
+import TodoForm from "./TodoForm";
 
 function AddTodo(props) {
-  const [todos, setTodos] = useState([]);
+  let initialValues = [
+    { id: 1, text: "Complete online JavaScript course", completed: true },
+    { id: 2, text: "Jog around the park 3x", completed: false },
+    { id: 3, text: "10 minutes of meditation", completed: false },
+    { id: 4, text: "Read for 1 hour", completed: false },
+    { id: 5, text: "Pick up groceries", completed: false },
+    { id: 6, text: "Complete Todo App React project", completed: false },
+  ];
+
+  const [todos, setTodos] = useState(() => {
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    return todoArray !== null ? todoArray : initialValues;
+  });
+  const [filter, setFilter] = useState([]);
+  console.log(filter);
   const [one, setOne] = useState(true);
   const [two, setTwo] = useState(false);
   const [three, setTree] = useState(false);
   const [todoItem, setTodoItem] = useState("");
+
   useEffect(() => {
-    const todoArray = JSON.parse(LS.get("todoLS"));
-    if (todoArray) {
-      setTodos(todoArray);
-    }
-  }, []);
+    LS.set("todoLS", JSON.stringify(todos));
+  });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     if (todoItem === "") return;
     addTodo();
     setTodoItem("");
+    e.preventDefault();
   };
 
   const addTodo = () => {
     setTodos([
       ...todos,
       {
-        id: todos.length + 1,
+        id: uuid(),
         text: todoItem,
         completed: false,
       },
@@ -57,11 +71,11 @@ function AddTodo(props) {
   };
 
   const handleFilterAll = () => {
-    const todoArray = JSON.parse(LS.get("todoLS"));
     setOne((prevState) => !prevState);
     setTwo(false);
     setTree(false);
-    if (todoArray) setTodos(todoArray);
+    const todoArray = JSON.parse(LS.get("todoLS"));
+    setFilter(todoArray);
   };
 
   const handleFilterActive = () => {
@@ -70,7 +84,7 @@ function AddTodo(props) {
     setTree(false);
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => !todo.completed);
-    setTodos(newTodos);
+    setFilter(newTodos);
   };
 
   const handleFilterCompleted = () => {
@@ -79,7 +93,7 @@ function AddTodo(props) {
     setTree((prevState) => !prevState);
     const todoArray = JSON.parse(LS.get("todoLS"));
     const newTodos = todoArray.filter((todo) => todo.completed);
-    setTodos(newTodos);
+    setFilter(newTodos);
   };
 
   const clearCompleted = () => {
@@ -90,24 +104,15 @@ function AddTodo(props) {
 
   return (
     <div>
-      <form
-        className={props.darkMode ? "flex dark-bg" : "flex"}
-        onSubmit={handleSubmit}
-      >
-        <button
-          className={props.darkMode ? "dark-bg dark-bg-circle" : null}
-        ></button>
-        <input
-          type="text"
-          placeholder="Create a new todo..."
-          value={todoItem}
-          onChange={handleChange}
-          className={props.darkMode ? "dark-bg" : null}
-        />
-      </form>
+      <TodoForm
+        darkMode={props.darkMode}
+        handleSubmit={handleSubmit}
+        handleChange={handleChange}
+        todoItem={todoItem}
+      />
       <TodoItem
         darkMode={props.darkMode}
-        todos={todos}
+        todos={one ? todos : two || three ? filter : null}
         checkTodo={checkTodo}
         removeTodo={removeTodo}
       />

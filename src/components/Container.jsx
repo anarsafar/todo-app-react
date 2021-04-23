@@ -18,6 +18,8 @@ function Container() {
   }, [darkMode]);
 
   useEffect(() => {
+    if (window.innerWidth <= 650) setSmall(true);
+    else setSmall(false);
     const handleResize = () => {
       if (window.innerWidth <= 650) setSmall(true);
       else {
