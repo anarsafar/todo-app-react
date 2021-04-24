@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop design](./design/desktop-preview.jpg)
-![Mobile design](./design/mobile-design-dark.jpg)
+![Desktop design](.src/design/desktop-preview.jpg)
+![Mobile design](.src/design/mobile-design-dark.jpg)
 
 ### Links
 
