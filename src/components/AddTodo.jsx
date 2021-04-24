@@ -4,7 +4,6 @@ import TodoItem from "./TodoItem";
 import LS from "local-storage";
 import uuid from "react-uuid";
 import TodoForm from "./TodoForm";
-import { DragDropContext } from "react-beautiful-dnd";
 
 function AddTodo(props) {
   let initialValues = [
@@ -102,23 +101,6 @@ function AddTodo(props) {
     LS.set("todoLS", JSON.stringify(newTodos));
   };
 
-  const reorder = (list, startIndex, endIndex) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
-  };
-
-  const onDragEnd = (result) => {
-    if (!result.destination) return;
-    const todoList = reorder(
-      todos,
-      result.source.index,
-      result.destination.index
-    );
-    setTodos(todoList);
-  };
   return (
     <div>
       <TodoForm
@@ -127,14 +109,13 @@ function AddTodo(props) {
         handleChange={handleChange}
         todoItem={todoItem}
       />
-      <DragDropContext onDragEnd={onDragEnd}>
-        <TodoItem
-          darkMode={props.darkMode}
-          todos={one ? todos : two || three ? filter : null}
-          checkTodo={checkTodo}
-          removeTodo={removeTodo}
-        />
-      </DragDropContext>
+      <TodoItem
+        darkMode={props.darkMode}
+        todos={one ? todos : two || three ? filter : null}
+        setTodos={setTodos}
+        checkTodo={checkTodo}
+        removeTodo={removeTodo}
+      />
       <TodoFooter
         darkMode={props.darkMode}
         handleFilterAll={handleFilterAll}

@@ -105,8 +105,29 @@ $darkmode-very-dark-grayish-blue-2:hsl(237,
     box-shadow: 0px 3px 52px -12px $lightmode-dark-grayish-blue;
 }
 
+.drag-text-dark {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 1rem;
+    color: $darkmode-light-grayish-blue !important;
+}
+
+.drag-text-light {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 1rem;
+    color: $darkmode-very-dark-grayish-blue-2;
+}
+
 button.footer-hover {
     &:hover {
         color: $darkmode-light-grayish-blue-hover !important;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .drag-text-light,
+    .drag-text-dark {
+        margin-top: 5rem;
     }
 }

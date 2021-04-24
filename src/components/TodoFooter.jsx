@@ -5,70 +5,77 @@ function TodoFooter(props) {
   const small = useContext(SmallContext);
   const itemsLeft = props.todos.filter((todo) => !todo.completed);
   return (
-    <div
-      className={
-        props.darkMode ? "todo-footer flex dark-bg" : "todo-footer flex"
-      }
-    >
-      <div className="items-left">
-        <span>{itemsLeft.length}</span> items left
-      </div>
+    <div>
       <div
         className={
-          props.darkMode && small ? "filter dark-bg" : "filter light-bg-footer"
+          props.darkMode ? "todo-footer flex dark-bg" : "todo-footer flex"
         }
       >
-        <button
-          onClick={props.handleFilterAll}
+        <div className="items-left">
+          <span>{itemsLeft.length}</span> items left
+        </div>
+        <div
           className={
-            props.darkMode && props.one
-              ? "footer-hover active"
-              : props.darkMode
-              ? "footer-hover"
-              : props.one
-              ? "active"
-              : null
+            props.darkMode && small
+              ? "filter dark-bg"
+              : "filter light-bg-footer"
           }
         >
-          All
-        </button>
-        <button
-          onClick={props.handleFilterActive}
-          className={
-            props.darkMode && props.two
-              ? "footer-hover active"
-              : props.darkMode
-              ? "footer-hover"
-              : props.two
-              ? "active"
-              : null
-          }
-        >
-          Active
-        </button>
-        <button
-          onClick={props.handleFilterCompleted}
-          className={
-            props.darkMode && props.three
-              ? "footer-hover active"
-              : props.darkMode
-              ? "footer-hover"
-              : props.three
-              ? "active"
-              : null
-          }
-        >
-          Completed
-        </button>
+          <button
+            onClick={props.handleFilterAll}
+            className={
+              props.darkMode && props.one
+                ? "footer-hover active"
+                : props.darkMode
+                ? "footer-hover"
+                : props.one
+                ? "active"
+                : null
+            }
+          >
+            All
+          </button>
+          <button
+            onClick={props.handleFilterActive}
+            className={
+              props.darkMode && props.two
+                ? "footer-hover active"
+                : props.darkMode
+                ? "footer-hover"
+                : props.two
+                ? "active"
+                : null
+            }
+          >
+            Active
+          </button>
+          <button
+            onClick={props.handleFilterCompleted}
+            className={
+              props.darkMode && props.three
+                ? "footer-hover active"
+                : props.darkMode
+                ? "footer-hover"
+                : props.three
+                ? "active"
+                : null
+            }
+          >
+            Completed
+          </button>
+        </div>
+        <div className="clear">
+          <button
+            onClick={props.clearCompleted}
+            className={props.darkMode ? "footer-hover" : null}
+          >
+            Clear Completed
+          </button>
+        </div>
       </div>
-      <div className="clear">
-        <button
-          onClick={props.clearCompleted}
-          className={props.darkMode ? "footer-hover" : null}
-        >
-          Clear Completed
-        </button>
-      </div>
+      <p className={props.darkMode ? "drag-text-dark" : "drag-text-light"}>
+        Drag and drop to reorder list
+      </p>
     </div>
   );
 }
