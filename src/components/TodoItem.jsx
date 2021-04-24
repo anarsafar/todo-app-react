@@ -8,10 +8,6 @@ function TodoItem(props) {
     ...draggableStyle,
   });
 
-  // const getListStyle = (isDraggingOver) => ({
-  //   width: "200",
-  // });
-
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
     const [removed] = result.splice(startIndex, 1);
@@ -33,11 +29,10 @@ function TodoItem(props) {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
-        {(provided, snapshot) => (
+        {(provided) => (
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            // style={getListStyle(snapshot.isDraggingOver)}
             className={props.darkMode ? "todo-items dark-items" : "todo-items"}
           >
             {props.todos.map((item, index) => (
@@ -59,26 +54,29 @@ function TodoItem(props) {
                     }
                   >
                     <div className="flex left">
-                      <img
-                        src={check}
-                        alt=""
+                      <div
+                        className="left-handle"
                         onClick={() => props.checkTodo(item.id)}
-                        className={
-                          item.completed ? "check-visible check" : "check"
-                        }
-                      />
-                      <button
-                        onClick={() => props.checkTodo(item.id)}
-                        className={
-                          props.darkMode && item.completed
-                            ? "dark-bg dark-bg-circle check-btn"
-                            : item.completed
-                            ? "check-btn"
-                            : props.darkMode
-                            ? "dark-bg dark-bg-circle"
-                            : null
-                        }
-                      ></button>
+                      >
+                        <img
+                          src={check}
+                          alt=""
+                          className={
+                            item.completed ? "check-visible check" : "check"
+                          }
+                        />
+                        <button
+                          className={
+                            props.darkMode && item.completed
+                              ? "dark-bg dark-bg-circle check-btn"
+                              : item.completed
+                              ? "check-btn"
+                              : props.darkMode
+                              ? "dark-bg dark-bg-circle"
+                              : null
+                          }
+                        ></button>
+                      </div>
                       <p
                         className={
                           item.completed && props.darkMode

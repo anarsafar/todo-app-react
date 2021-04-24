@@ -66,14 +66,12 @@ img {
 .drag-text-dark {
   text-align: center;
   font-size: 12px;
-  margin-top: 1rem;
   color: #cacde8 !important;
 }
 
 .drag-text-light {
   text-align: center;
   font-size: 12px;
-  margin-top: 1rem;
   color: #393a4c;
 }
 
@@ -84,7 +82,7 @@ button.footer-hover:hover {
 @media screen and (max-width: 550px) {
   .drag-text-light,
   .drag-text-dark {
-    margin-top: 5rem;
+    margin-top: 6rem;
   }
 }
 
@@ -228,10 +226,14 @@ form input::placeholder {
 .todo-items .todo-item {
   padding: 16px 1rem 15px;
   margin: 0;
-  position: relative;
+  position: static !important;
   background: #fff;
   border-bottom: 1px solid #e4e5f1;
   transition: 0.4s ease-out;
+}
+
+.todo-items .todo-item .left-handle {
+  position: relative;
 }
 
 .todo-items .todo-item .hide {
@@ -247,9 +249,9 @@ form input::placeholder {
 
 .todo-items .todo-item .check {
   position: absolute;
-  top: 23px;
-  left: 21px;
-  width: 2%;
+  top: 10px;
+  left: 5.5px;
+  width: 50%;
   cursor: pointer;
   display: none;
 }
@@ -265,7 +267,6 @@ form input::placeholder {
 
 .todo-items .todo-item .check-btn {
   background: linear-gradient(#57ddff, #c058f3) !important;
-  display: block;
 }
 
 .todo-items .todo-item button {
@@ -292,13 +293,5 @@ form input::placeholder {
   padding: 0 1rem;
   font-size: 13px;
   font-weight: 700;
-}
-
-@media screen and (max-width: 550px) {
-  .todo-items .todo-item .check {
-    width: 3%;
-    top: 22px;
-    left: 22px;
-  }
 }
 /*# sourceMappingURL=App.css.map */

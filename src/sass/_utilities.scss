@@ -108,14 +108,12 @@ $darkmode-very-dark-grayish-blue-2:hsl(237,
 .drag-text-dark {
     text-align: center;
     font-size: 12px;
-    margin-top: 1rem;
     color: $darkmode-light-grayish-blue !important;
 }
 
 .drag-text-light {
     text-align: center;
     font-size: 12px;
-    margin-top: 1rem;
     color: $darkmode-very-dark-grayish-blue-2;
 }
 
@@ -128,6 +126,6 @@ button.footer-hover {
 @media screen and (max-width:550px) {
     .drag-text-light,
     .drag-text-dark {
-        margin-top: 5rem;
+        margin-top: 6rem;
     }
 }
