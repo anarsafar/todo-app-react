@@ -35,12 +35,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop design](.src/design/desktop-preview.jpg)
-![Mobile design](.src/design/mobile-design-dark.jpg)
+![Desktop design](src/design/desktop-preview.jpg)
 
 ### Links
 
-- Live Site URL: [Todo-app-react](https://your-live-site-url.com)
+- Live Site URL: [Todo-app-react](hhttps://todo-app-react-anarseferov.vercel.app/)
 
 ## My process
 
