@@ -4,15 +4,16 @@ import TodoItem from "./TodoItem";
 import LS from "local-storage";
 import uuid from "react-uuid";
 import TodoForm from "./TodoForm";
+import { DragDropContext } from "react-beautiful-dnd";
 
 function AddTodo(props) {
   let initialValues = [
-    { id: 1, text: "Complete online JavaScript course", completed: true },
-    { id: 2, text: "Jog around the park 3x", completed: false },
-    { id: 3, text: "10 minutes of meditation", completed: false },
-    { id: 4, text: "Read for 1 hour", completed: false },
-    { id: 5, text: "Pick up groceries", completed: false },
-    { id: 6, text: "Complete Todo App React project", completed: false },
+    { id: uuid(), text: "Complete online JavaScript course", completed: true },
+    { id: uuid(), text: "Jog around the park 3x", completed: false },
+    { id: uuid(), text: "10 minutes of meditation", completed: false },
+    { id: uuid(), text: "Read for 1 hour", completed: false },
+    { id: uuid(), text: "Pick up groceries", completed: false },
+    { id: uuid(), text: "Complete Todo App React project", completed: false },
   ];
 
   const [todos, setTodos] = useState(() => {
@@ -20,7 +21,6 @@ function AddTodo(props) {
     return todoArray !== null ? todoArray : initialValues;
   });
   const [filter, setFilter] = useState([]);
-  console.log(filter);
   const [one, setOne] = useState(true);
   const [two, setTwo] = useState(false);
   const [three, setTree] = useState(false);
@@ -102,6 +102,23 @@ function AddTodo(props) {
     LS.set("todoLS", JSON.stringify(newTodos));
   };
 
+  const reorder = (list, startIndex, endIndex) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+  };
+
+  const onDragEnd = (result) => {
+    if (!result.destination) return;
+    const todoList = reorder(
+      todos,
+      result.source.index,
+      result.destination.index
+    );
+    setTodos(todoList);
+  };
   return (
     <div>
       <TodoForm
@@ -110,12 +127,14 @@ function AddTodo(props) {
         handleChange={handleChange}
         todoItem={todoItem}
       />
-      <TodoItem
-        darkMode={props.darkMode}
-        todos={one ? todos : two || three ? filter : null}
-        checkTodo={checkTodo}
-        removeTodo={removeTodo}
-      />
+      <DragDropContext onDragEnd={onDragEnd}>
+        <TodoItem
+          darkMode={props.darkMode}
+          todos={one ? todos : two || three ? filter : null}
+          checkTodo={checkTodo}
+          removeTodo={removeTodo}
+        />
+      </DragDropContext>
       <TodoFooter
         darkMode={props.darkMode}
         handleFilterAll={handleFilterAll}
