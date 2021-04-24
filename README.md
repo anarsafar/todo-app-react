@@ -39,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Todo-app-react](hhttps://todo-app-react-anarseferov.vercel.app/)
+- Live Site URL: [Todo-app-react](https://todo-app-react-anarseferov.vercel.app/)
 
 ## My process
 
