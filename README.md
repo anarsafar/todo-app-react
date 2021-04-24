@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Todo App React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Welcome! 👋
 
-## Available Scripts
+Thanks for checking out this front-end react project.
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author](#author)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Overview
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### The challenge
 
-### `npm test`
+Users should be able to:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- View the optimal layout for the app depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Add new todos to the list
+- Mark todos as complete
+- Delete todos from the list
+- Filter by all/active/complete todos
+- Clear all completed todos
+- Toggle light and dark mode
+- Drag and drop to reorder items on the list
 
-### `npm run build`
+### Screenshot
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Desktop design](./design/desktop-preview.jpg)
+![Mobile design](./design/mobile-design-dark.jpg)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Live Site URL: [Todo-app-react](https://your-live-site-url.com)
 
-### `npm run eject`
+## My process
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- CSS custom properties
+- Mobile-first workflow
+- Local Storage for saving data and toggle dark mode
+- JavaScript filter property
+- [React-beautiful-DnD](https://github.com/atlassian/react-beautiful-dnd) - for reordering list data
+- React Context API - Context provides a way to pass data through the component tree without having to pass props down manually at every level.
+- [uuid](https://www.npmjs.com/package/react-uuid) - for generating list item id
+- [React](https://reactjs.org/) - JS library
+- React hooks
+- [SASS](https://sass-lang.com/) - For styles
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### What I learned
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I learned how to reorder list items. For that I used React beautiful DnD. It's quite simple and fun
 
-## Learn More
+### Continued development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I will focus react custom hooks in future projects. Hooks are more clean and simple. And also I will use uuid for generating ID's. It's comfortable and safer than other methods.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Useful resources
 
-### Code Splitting
+- [egghead.io](https://egghead.io/courses/beautiful-and-accessible-drag-and-drop-with-react-beautiful-dnd) - This helped me how to use react beautiful DnD. I really liked this pattern and will use it going forward.
+- [github-issiue-page](https://github.com/atlassian/react-beautiful-dnd/issues/192) - This is an amazing article which helped me finally understand react beautiful DnD draggable component behavior. I'd recommend it to anyone still learning this concept.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Author
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [anarseferov](https://github.com/anarseferrov)
+- Twitter - [@anarseferov](https://twitter.com/anarseferrov)
